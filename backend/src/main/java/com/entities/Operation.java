@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.entities.enums.OperationType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Operation implements Serializable{
@@ -19,8 +20,12 @@ public class Operation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
+	
 	public Integer type;
+	
 	public Double value;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	public Instant date;
 	public String recipientId;
 	
@@ -31,7 +36,6 @@ public class Operation implements Serializable{
 	public Operation() {
 		super();
 	}
-
 		
 	public Operation(Long id, OperationType type, Double value, Instant date, String recipientId, User client) {
 		super();

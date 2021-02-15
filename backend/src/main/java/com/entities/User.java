@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -26,6 +28,7 @@ public class User implements Serializable{
 	public String email;
 	public Double balance;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Operation> operations = new ArrayList<>();
 	
