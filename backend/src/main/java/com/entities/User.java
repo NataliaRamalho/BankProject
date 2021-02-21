@@ -96,7 +96,7 @@ public class User implements Serializable{
 	public List<Operation> getOperations() {
 		return operations;
 	}
-
+	
 
 	@Override
 	public int hashCode() {

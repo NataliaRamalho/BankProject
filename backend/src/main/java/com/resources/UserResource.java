@@ -44,7 +44,7 @@ public class UserResource {
 		String password = u.password;
 		User user = services.seachUser(email, password);
 		if (user == null) {
-			return ResponseEntity.status(404).body(user);
+			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().body(user);
 	}

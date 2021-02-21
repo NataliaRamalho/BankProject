@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,30 +15,31 @@ import com.entities.enums.OperationType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Operation implements Serializable{
+public class Operation implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
-	
+
 	public Integer type;
-	
+
 	public Double value;
-	
+
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	public Instant date;
-	public String recipientId;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
+	public Long recipientId;
+
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
 	private User client;
-	
+
 	public Operation() {
 		super();
 	}
-		
-	public Operation(Long id, OperationType type, Double value, Instant date, String recipientId, User client) {
+
+	public Operation(Long id, OperationType type, Double value, Instant date, Long recipientId, User client) {
 		super();
 		this.id = id;
 		setType(type);
@@ -46,7 +48,6 @@ public class Operation implements Serializable{
 		this.recipientId = recipientId;
 		this.client = client;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -61,10 +62,10 @@ public class Operation implements Serializable{
 	}
 
 	public void setType(OperationType type) {
-		if(type != null) {
+		if (type != null) {
 			this.type = type.getCode();
 		}
-		
+
 	}
 
 	public Double getValue() {
@@ -83,25 +84,22 @@ public class Operation implements Serializable{
 		this.date = date;
 	}
 
-	public String getRecipientId() {
+	public Long getRecipientId() {
 		return recipientId;
 	}
 
-	public void setRecipientId(String recipientId) {
+	public void setRecipientId(Long recipientId) {
 		this.recipientId = recipientId;
 	}
-	
-	
-	public User getUser() {
+
+	public User getClient() {
 		return client;
 	}
 
-
-	public void setUser(User client) {
+	public void setClient(User client) {
 		this.client = client;
 	}
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -126,9 +124,5 @@ public class Operation implements Serializable{
 			return false;
 		return true;
 	}
-
-	
-	
-	
 
 }
