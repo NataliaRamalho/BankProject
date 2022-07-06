@@ -1,4 +1,4 @@
-# ProjetoCaixaEletronico
+# Projeto Caixa Eletrônico
 Projeto desenvolvido durante o terceiro ano da minha faculdade, nesse projeto criou-se um sistema de caixa eletrônico utilizando os princípios de orientação a objetos em Java.
 
 
@@ -7,10 +7,12 @@ Sumário 📑
    1. [Principais tecnologias](#Principais-tecnologias)
    2. [Pré requisitos para executar o projeto](#Pré-requisitos-para-executar-o-projeto)
    3. [Rodando o projeto](#Rodando-o-projeto)
+   4. [Acessando o banco de teste](#Acessando-o-banco-de-teste)
+   5. [Rotas da aplicação ](#Rotas-da-aplicação )
 
 # Principais tecnologias
 - Java
-- SpringBoot
+- Spring Boot
 
 # Pré requisitos para executar o projeto 
 - [JDK](https://www.oracle.com/java/technologies/downloads/#java18)
@@ -38,17 +40,55 @@ Se não, faça o download do repositório e descompacte o arquivo.
 
 - Com o projeto rodando, acesse a url http://localhost:8080/h2-console
 
-- Abra o arquivo application-test.properties em backend\src\main\resources\application-test.properties 
-
-- Copie a url do arquivo application-test.properties 
-
-- Substitua no 'JDBC URL' em http://localhost:8080/h2-console 
+- Cole em 'JDBC URL' a string: 'jdbc:h2:mem:testdb' 
 
 - Clique em connect
 
 - Parabéns você acessou o banco de teste.
 
+# Rotas da aplicação 
+**Base url: http://localhost:8080**
+
+**1. Users** 
+    - (GET) /users         
+    - (POST) /users
+
+     ```
+            {
+                "accountNumber": 100,
+                "balance": 0,
+                "email": "teste@gmail.com",
+                "name": "teste",
+                "password": "123"
+            }
+     ```
+
+    </br>
+
+    - (POST) /users/login
+
+    ```
+        {
+            "email": "teste@gmail.com",
+            "password": "123"
+        }
+    ```
+   </br>
+
+**2. Operations**
+
+    - (GET) /operations 
+    </br>
+
+    - (POST) /operations/{user_id}
+     ```
+           {
+                "type": 0,
+                "value": 250,
+                "instant": "2022-07-05 00:00:00"
+            }
+     ```
+
+- Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo "routes" que terá todas as rotas da aplicação
 
 ⏰ Projeto desenvolvido em fev/2021
-
-
