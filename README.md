@@ -1,6 +1,5 @@
-# Projeto Caixa Eletrônico
-Projeto desenvolvido durante o terceiro ano da minha faculdade, nesse projeto criou-se um sistema de caixa eletrônico utilizando os princípios de orientação a objetos em Java.
-
+# Projeto Banco
+Api desenvolvida em Java utilizando Spring Boot que possui algumas funções de um banco.
 
 Sumário 📑 
 =================
@@ -25,7 +24,7 @@ Caso tenha o [git](https://git-scm.com/downloads) instalado, digite o comando ab
 Se não, faça o download do repositório e descompacte o arquivo.
 
 `````
-    git clone https://github.com/NataliaRamalho/ProjetoCaixaEletronico.git
+    git clone https://github.com/NataliaRamalho/BankProject.git
 `````
 
 - Abra o projeto no editor de codigo, caso esteja usando o [SpringTools](https://spring.io/tools), import o projeto selecionando Import -> Maven -> Existing Maven Projects -> Next -> Selecione o local onde salvou o projeto -> Finish.
@@ -49,31 +48,28 @@ Se não, faça o download do repositório e descompacte o arquivo.
 # Rotas da aplicação 
 **Base url: http://localhost:8080**
 
-**1. Users** 
-    - (GET) /users         
-    - (POST) /users
+**1. Users**
+    <li> (GET) /users </li>        
+    <li> (POST) /users </li>   
 
-     ```
-            {
-                "accountNumber": 100,
-                "balance": 0,
-                "email": "teste@gmail.com",
-                "name": "teste",
-                "password": "123"
-            }
-     ```
+`````
+    {
+        "accountNumber": 100,
+        "balance": 0,
+        "email": "teste@gmail.com",
+        "name": "teste",
+        "password": "123"
+    }
+`````
+<li> (POST) /users/login </li>   
 
-    </br>
+```
+    {
+        "email": "teste@gmail.com",
+        "password": "123"
+    }
+```
 
-    - (POST) /users/login
-
-    ```
-        {
-            "email": "teste@gmail.com",
-            "password": "123"
-        }
-    ```
-   </br>
 
 **2. Operations**
 
