@@ -16,7 +16,7 @@ import com.entities.User;
 import com.services.UserService;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/users")
 public class UserResource {
 	
 	@Autowired
@@ -38,7 +38,7 @@ public class UserResource {
 	}
 	
 	
-	@PostMapping(value = "login")
+	@PostMapping(value = "/login")
 	public ResponseEntity<User> login(@RequestBody User u) {
 		String email = u.email;
 		String password = u.password;
