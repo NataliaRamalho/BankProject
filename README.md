@@ -49,8 +49,8 @@ Se não, faça o download do repositório e descompacte o arquivo.
 **Base url: http://localhost:8080**
 
 **1. Users**
-    <li> (GET) /users </li>        
-    <li> (POST) /users </li>   
+- (GET) /users        
+- (POST) /users   
 
 `````
     {
@@ -61,7 +61,7 @@ Se não, faça o download do repositório e descompacte o arquivo.
         "password": "123"
     }
 `````
-<li> (POST) /users/login </li>   
+- (POST) /users/login 
 
 ```
     {
@@ -73,18 +73,17 @@ Se não, faça o download do repositório e descompacte o arquivo.
 
 **2. Operations**
 
-    - (GET) /operations 
-    </br>
+- (GET) /operations 
 
-    - (POST) /operations/{user_id}
-     ```
-           {
-                "type": 0,
-                "value": 250,
-                "instant": "2022-07-05 00:00:00"
-            }
-     ```
+- (POST) /operations/{user_id}
+```
+    {
+        "type": 0,
+        "value": 250,
+        "instant": "2022-07-05 00:00:00"
+    }
+```
 
-- Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo "routes" que terá todas as rotas da aplicação
+- Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo ["routes"](https://github.com/NataliaRamalho/BankProject/blob/main/routes) que terá todas as rotas da aplicação
 
 ⏰ Projeto desenvolvido em fev/2021
