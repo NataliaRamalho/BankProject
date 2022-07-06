@@ -84,6 +84,6 @@ Se não, faça o download do repositório e descompacte o arquivo.
     }
 ```
 
-- Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo ["routes"](https://github.com/NataliaRamalho/BankProject/blob/main/routes) que terá todas as rotas da aplicação
+- Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo [routes](https://github.com/NataliaRamalho/BankProject/blob/main/routes) que terá todas as rotas da aplicação
 
 ⏰ Projeto desenvolvido em fev/2021
