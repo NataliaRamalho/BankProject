@@ -1,0 +1,329 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v2022.4.2"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2022-07-06T01:05:45.916Z",
+				"time": 103.39800000000001,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/users",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 06 Jul 2022 00:57:24 GMT"
+						}
+					],
+					"content": {
+						"size": 194,
+						"mimeType": "application/json",
+						"text": "[{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":0.0},{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 103.39800000000001,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "GetAll - users"
+			},
+			{
+				"startedDateTime": "2022-07-06T01:05:45.916Z",
+				"time": 7.008,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/operations",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": "",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 06 Jul 2022 01:05:01 GMT"
+						}
+					],
+					"content": {
+						"size": 173,
+						"mimeType": "application/json",
+						"text": "[{\"id\":1,\"type\":\"DEPOSIT\",\"value\":250.0,\"date\":null,\"recipientId\":null,\"client\":{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":250.0}}]"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 7.008,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "GetAll - operations"
+			},
+			{
+				"startedDateTime": "2022-07-06T01:05:45.916Z",
+				"time": 104.465,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/operations/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"type\": 0,\n\t\"value\": 250,\n\t\"instant\": \"2022-07-05 00:00:00\"\n}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Location",
+							"value": "http://localhost:8080/operations/1/1"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 06 Jul 2022 01:05:00 GMT"
+						}
+					],
+					"content": {
+						"size": 171,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"type\":\"DEPOSIT\",\"value\":250.0,\"date\":null,\"recipientId\":null,\"client\":{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":250.0}}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 104.465,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Register - operations"
+			},
+			{
+				"startedDateTime": "2022-07-06T01:05:45.916Z",
+				"time": 192.677,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/users",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"accountNumber\": 100,\n\t\"balance\": 0,\n\t\"email\": \"teste@gmail.com\",\n\t\"name\": \"teste\",\n\t\"password\": \"123\"\n}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Location",
+							"value": "http://localhost:8080/users/2"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 06 Jul 2022 00:57:21 GMT"
+						}
+					],
+					"content": {
+						"size": 102,
+						"mimeType": "application/json",
+						"text": "{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 192.677,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Register - users"
+			},
+			{
+				"startedDateTime": "2022-07-06T01:05:45.916Z",
+				"time": 20.394,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/users/login",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"email\": \"teste@gmail.com\",\n\t\"password\": \"123\"\n}",
+						"params": []
+					},
+					"headersSize": -1,
+					"bodySize": -1,
+					"settingEncodeUrl": true
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 06 Jul 2022 00:58:00 GMT"
+						}
+					],
+					"content": {
+						"size": 102,
+						"mimeType": "application/json",
+						"text": "{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.394,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Login - users"
+			}
+		]
+	}
+}
