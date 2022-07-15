@@ -10,19 +10,17 @@ import com.repositories.UserRepository;
 
 @Configuration
 @Profile("test")
-public class TestConfig implements CommandLineRunner{
-	
+public class TestConfig implements CommandLineRunner {
+
 	@Autowired
 	private UserRepository userRepository;
-	
-	
+
 	@Override
 	public void run(String... args) throws Exception {
-		User u1 = new User(null, "Ana", "000", "5555", "555", 0.0);
-		
+		User u1 = new User("teste", "senha123", "teste@gmail.com");
+
 		userRepository.save(u1);
 
-		
-	} 
+	}
 
 }

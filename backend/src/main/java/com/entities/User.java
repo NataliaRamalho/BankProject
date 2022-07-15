@@ -1,8 +1,10 @@
 package com.entities;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,13 +14,11 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
 @Entity
-public class User implements Serializable{
-	
+public class User implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long id;
@@ -27,21 +27,20 @@ public class User implements Serializable{
 	public String password;
 	public String email;
 	public Double balance;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Operation> operations = new ArrayList<>();
-	
-	public User() {}
-	
-	public User(Long id, String name, String accountNumber, String password, String email, Double balance) {
-		super();
-		this.id = id;
+
+	public User() {
+	}
+
+	public User(String name, String password, String email) {
 		this.name = name;
-		this.accountNumber = accountNumber;
-		this.password = password;
+		this.accountNumber = this.generateAccountNumber();
+		this.password = this.encryptedPassword(password);
 		this.email = email;
-		this.balance = balance;
+		this.balance = 0.0;
 	}
 
 	public Long getId() {
@@ -73,7 +72,7 @@ public class User implements Serializable{
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = this.encryptedPassword(password);
 	}
 
 	public String getEmail() {
@@ -92,11 +91,35 @@ public class User implements Serializable{
 		this.balance = balance;
 	}
 
-	
 	public List<Operation> getOperations() {
 		return operations;
 	}
-	
+
+	private String generateAccountNumber() {
+		String accountNumber = "";
+		Random random = new Random();
+		for (int i = 0; i <= 6; i++) {
+			int newNumber = random.nextInt(9);
+			accountNumber = accountNumber + newNumber;
+		}
+		char letter = (char) (random.nextInt(26) + 'a');
+		return letter + accountNumber;
+	}
+
+	private String encryptedPassword(String password) {
+		try {
+			MessageDigest algorithm = MessageDigest.getInstance("MD5");
+			byte messageDigest[] = algorithm.digest(password.getBytes("UTF-8"));
+			StringBuilder hexString = new StringBuilder();
+			for (byte b : messageDigest) {
+				hexString.append(String.format("%02X", 0xFF & b));
+			}
+			return hexString.toString();
+
+		} catch (Exception ex) {
+			return password;
+		}
+	}
 
 	@Override
 	public int hashCode() {
@@ -122,8 +145,5 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }
