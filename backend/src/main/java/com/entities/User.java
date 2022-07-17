@@ -72,7 +72,7 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = this.encryptedPassword(password);
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -119,6 +119,11 @@ public class User implements Serializable {
 		} catch (Exception ex) {
 			return password;
 		}
+	}
+
+	public String toString() {
+		return "Nome: " + this.name + "\nAccountNumber: " + this.accountNumber + "\nEmail: " + this.email
+				+ "\nBalance: " + this.balance + "\nPassword: " + this.password;
 	}
 
 	@Override
