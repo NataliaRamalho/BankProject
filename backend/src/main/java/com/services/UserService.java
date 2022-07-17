@@ -17,11 +17,12 @@ public class UserService {
 	private UserRepository repository;
 
 	public User createUser(User u) {
-		User user = repository.findByEmail(u.email);
-		if (user != null) {
+		User user = new User(u.name, u.password, u.email);
+		User userFound = repository.findByEmail(u.email);
+		if (userFound != null) {
 			throw new CustomError("User already register", HttpStatus.NOT_ACCEPTABLE);
 		}
-		User newUser = repository.save(u);
+		User newUser = repository.save(user);
 		return newUser;
 	}
 
