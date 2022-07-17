@@ -38,7 +38,7 @@ public class User implements Serializable {
 	public User(String name, String password, String email) {
 		this.name = name;
 		this.accountNumber = this.generateAccountNumber();
-		this.password = this.encryptedPassword(password);
+		this.password = encryptedPassword(password);
 		this.email = email;
 		this.balance = 0.0;
 	}
@@ -106,7 +106,7 @@ public class User implements Serializable {
 		return letter + accountNumber;
 	}
 
-	private String encryptedPassword(String password) {
+	public static String encryptedPassword(String password) {
 		try {
 			MessageDigest algorithm = MessageDigest.getInstance("MD5");
 			byte messageDigest[] = algorithm.digest(password.getBytes("UTF-8"));

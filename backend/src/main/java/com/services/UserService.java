@@ -30,8 +30,9 @@ public class UserService {
 		return repository.findAll();
 	}
 
-	public User seachUser(String email, String password) {
-		return repository.findByEmailAndPassword(email, password);
+	public User searchUser(String email, String password) {
+		String newPassword = User.encryptedPassword(password);
+		return repository.findByEmailAndPassword(email, newPassword);
 	}
 
 }

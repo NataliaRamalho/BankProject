@@ -47,7 +47,7 @@ public class UserResource {
 	public ResponseEntity<User> login(@RequestBody User u) {
 		String email = u.email;
 		String password = u.password;
-		User user = services.seachUser(email, password);
+		User user = services.searchUser(email, password);
 		if (user == null) {
 			return ResponseEntity.notFound().build();
 		}
