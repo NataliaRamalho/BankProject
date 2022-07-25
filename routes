@@ -7,8 +7,8 @@
 		},
 		"entries": [
 			{
-				"startedDateTime": "2022-07-06T01:05:45.916Z",
-				"time": 103.39800000000001,
+				"startedDateTime": "2022-07-25T13:32:06.507Z",
+				"time": 274.808,
 				"request": {
 					"method": "GET",
 					"url": "http://localhost:8080/users",
@@ -32,6 +32,38 @@
 					"cookies": [],
 					"headers": [
 						{
+							"name": "Vary",
+							"value": "Origin"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
 							"name": "Content-Type",
 							"value": "application/json"
 						},
@@ -41,13 +73,13 @@
 						},
 						{
 							"name": "Date",
-							"value": "Wed, 06 Jul 2022 00:57:24 GMT"
+							"value": "Mon, 25 Jul 2022 13:30:14 GMT"
 						}
 					],
 					"content": {
-						"size": 194,
+						"size": 277,
 						"mimeType": "application/json",
-						"text": "[{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":0.0},{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}]"
+						"text": "[{\"id\":1,\"name\":\"teste\",\"accountNumber\":\"m2780657\",\"password\":\"E7D80FFEEFA212B7C5C55700E4F7193E\",\"email\":\"teste@gmail.com\",\"balance\":0.0},{\"id\":2,\"name\":\"teste2\",\"accountNumber\":\"y6376811\",\"password\":\"E7D80FFEEFA212B7C5C55700E4F7193E\",\"email\":\"teste2@gmail.com\",\"balance\":0.0}]"
 					},
 					"redirectURL": "",
 					"headersSize": -1,
@@ -59,15 +91,15 @@
 					"dns": -1,
 					"connect": -1,
 					"send": 0,
-					"wait": 103.39800000000001,
+					"wait": 274.808,
 					"receive": 0,
 					"ssl": -1
 				},
 				"comment": "GetAll - users"
 			},
 			{
-				"startedDateTime": "2022-07-06T01:05:45.916Z",
-				"time": 7.008,
+				"startedDateTime": "2022-07-25T13:32:06.507Z",
+				"time": 14.508999999999999,
 				"request": {
 					"method": "GET",
 					"url": "http://localhost:8080/operations",
@@ -91,6 +123,38 @@
 					"cookies": [],
 					"headers": [
 						{
+							"name": "Vary",
+							"value": "Origin"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
 							"name": "Content-Type",
 							"value": "application/json"
 						},
@@ -100,13 +164,13 @@
 						},
 						{
 							"name": "Date",
-							"value": "Wed, 06 Jul 2022 01:05:01 GMT"
+							"value": "Mon, 25 Jul 2022 13:30:30 GMT"
 						}
 					],
 					"content": {
-						"size": 173,
+						"size": 517,
 						"mimeType": "application/json",
-						"text": "[{\"id\":1,\"type\":\"DEPOSIT\",\"value\":250.0,\"date\":null,\"recipientId\":null,\"client\":{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":250.0}}]"
+						"text": "[{\"id\":1,\"type\":\"RECEIVE\",\"value\":50.0,\"date\":\"2022-07-22 15:21:22\",\"description\":\"testando\",\"recipientId\":1,\"client\":{\"id\":2,\"name\":\"teste2\",\"accountNumber\":\"y6376811\",\"password\":\"E7D80FFEEFA212B7C5C55700E4F7193E\",\"email\":\"teste2@gmail.com\",\"balance\":50.0}},{\"id\":2,\"type\":\"TRANSFER\",\"value\":50.0,\"date\":\"2022-07-22 15:21:22\",\"description\":\"testando\",\"recipientId\":2,\"client\":{\"id\":1,\"name\":\"teste\",\"accountNumber\":\"m2780657\",\"password\":\"E7D80FFEEFA212B7C5C55700E4F7193E\",\"email\":\"teste@gmail.com\",\"balance\":-50.0}}]"
 					},
 					"redirectURL": "",
 					"headersSize": -1,
@@ -118,18 +182,18 @@
 					"dns": -1,
 					"connect": -1,
 					"send": 0,
-					"wait": 7.008,
+					"wait": 14.508999999999999,
 					"receive": 0,
 					"ssl": -1
 				},
 				"comment": "GetAll - operations"
 			},
 			{
-				"startedDateTime": "2022-07-06T01:05:45.916Z",
-				"time": 104.465,
+				"startedDateTime": "2022-07-25T13:32:06.507Z",
+				"time": 68.91600000000001,
 				"request": {
 					"method": "POST",
-					"url": "http://localhost:8080/operations/1",
+					"url": "http://localhost:8080/operations/2",
 					"httpVersion": "HTTP/1.1",
 					"cookies": [],
 					"headers": [
@@ -141,7 +205,7 @@
 					"queryString": [],
 					"postData": {
 						"mimeType": "application/json",
-						"text": "{\n\t\"type\": 0,\n\t\"value\": 250,\n\t\"instant\": \"2022-07-05 00:00:00\"\n}",
+						"text": "{\n\t\"type\": 0,\n\t\"value\": 50,\n\t\"date\": \"2022-07-22 15:21:22\",\n\t\"recipientId\":1,\n\t\"description\": \"testando\"\n}",
 						"params": []
 					},
 					"headersSize": -1,
@@ -155,8 +219,40 @@
 					"cookies": [],
 					"headers": [
 						{
+							"name": "Vary",
+							"value": "Origin"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"name": "Location",
-							"value": "http://localhost:8080/operations/1/1"
+							"value": "http://localhost:8080/operations/2/1"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
 						},
 						{
 							"name": "Content-Type",
@@ -168,13 +264,13 @@
 						},
 						{
 							"name": "Date",
-							"value": "Wed, 06 Jul 2022 01:05:00 GMT"
+							"value": "Mon, 25 Jul 2022 13:30:26 GMT"
 						}
 					],
 					"content": {
-						"size": 171,
+						"size": 125,
 						"mimeType": "application/json",
-						"text": "{\"id\":1,\"type\":\"DEPOSIT\",\"value\":250.0,\"date\":null,\"recipientId\":null,\"client\":{\"id\":1,\"name\":\"Ana\",\"accountNumber\":\"000\",\"password\":\"5555\",\"email\":\"555\",\"balance\":250.0}}"
+						"text": "{\"id\":null,\"type\":\"RECEIVE\",\"value\":50.0,\"date\":\"2022-07-22 15:21:22\",\"description\":\"testando\",\"recipientId\":1,\"client\":null}"
 					},
 					"redirectURL": "",
 					"headersSize": -1,
@@ -186,15 +282,15 @@
 					"dns": -1,
 					"connect": -1,
 					"send": 0,
-					"wait": 104.465,
+					"wait": 68.91600000000001,
 					"receive": 0,
 					"ssl": -1
 				},
 				"comment": "Register - operations"
 			},
 			{
-				"startedDateTime": "2022-07-06T01:05:45.916Z",
-				"time": 192.677,
+				"startedDateTime": "2022-07-25T13:32:06.507Z",
+				"time": 61.067,
 				"request": {
 					"method": "POST",
 					"url": "http://localhost:8080/users",
@@ -209,7 +305,7 @@
 					"queryString": [],
 					"postData": {
 						"mimeType": "application/json",
-						"text": "{\n\t\"accountNumber\": 100,\n\t\"balance\": 0,\n\t\"email\": \"teste@gmail.com\",\n\t\"name\": \"teste\",\n\t\"password\": \"123\"\n}",
+						"text": "{\n\t\"email\": \"teste3@gmail.com\",\n\t\"name\": \"teste\",\n\t\"password\": \"123\"\n}",
 						"params": []
 					},
 					"headersSize": -1,
@@ -223,8 +319,40 @@
 					"cookies": [],
 					"headers": [
 						{
+							"name": "Vary",
+							"value": "Origin"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"name": "Location",
-							"value": "http://localhost:8080/users/2"
+							"value": "http://localhost:8080/users/3"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
 						},
 						{
 							"name": "Content-Type",
@@ -236,13 +364,13 @@
 						},
 						{
 							"name": "Date",
-							"value": "Wed, 06 Jul 2022 00:57:21 GMT"
+							"value": "Mon, 25 Jul 2022 13:30:18 GMT"
 						}
 					],
 					"content": {
-						"size": 102,
+						"size": 137,
 						"mimeType": "application/json",
-						"text": "{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}"
+						"text": "{\"id\":3,\"name\":\"teste\",\"accountNumber\":\"q4420334\",\"password\":\"202CB962AC59075B964B07152D234B70\",\"email\":\"teste3@gmail.com\",\"balance\":0.0}"
 					},
 					"redirectURL": "",
 					"headersSize": -1,
@@ -254,15 +382,15 @@
 					"dns": -1,
 					"connect": -1,
 					"send": 0,
-					"wait": 192.677,
+					"wait": 61.067,
 					"receive": 0,
 					"ssl": -1
 				},
 				"comment": "Register - users"
 			},
 			{
-				"startedDateTime": "2022-07-06T01:05:45.916Z",
-				"time": 20.394,
+				"startedDateTime": "2022-07-25T13:32:06.507Z",
+				"time": 11.134,
 				"request": {
 					"method": "POST",
 					"url": "http://localhost:8080/users/login",
@@ -277,7 +405,7 @@
 					"queryString": [],
 					"postData": {
 						"mimeType": "application/json",
-						"text": "{\n\t\"email\": \"teste@gmail.com\",\n\t\"password\": \"123\"\n}",
+						"text": "{\n\t\"email\": \"teste3@gmail.com\",\n\t\"password\": \"123\"\n}",
 						"params": []
 					},
 					"headersSize": -1,
@@ -291,6 +419,38 @@
 					"cookies": [],
 					"headers": [
 						{
+							"name": "Vary",
+							"value": "Origin"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"name": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"name": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"name": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"name": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"name": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"name": "Expires",
+							"value": "0"
+						},
+						{
 							"name": "Content-Type",
 							"value": "application/json"
 						},
@@ -300,13 +460,13 @@
 						},
 						{
 							"name": "Date",
-							"value": "Wed, 06 Jul 2022 00:58:00 GMT"
+							"value": "Mon, 25 Jul 2022 13:30:20 GMT"
 						}
 					],
 					"content": {
-						"size": 102,
+						"size": 137,
 						"mimeType": "application/json",
-						"text": "{\"id\":2,\"name\":\"teste\",\"accountNumber\":\"100\",\"password\":\"123\",\"email\":\"teste@gmail.com\",\"balance\":0.0}"
+						"text": "{\"id\":3,\"name\":\"teste\",\"accountNumber\":\"q4420334\",\"password\":\"202CB962AC59075B964B07152D234B70\",\"email\":\"teste3@gmail.com\",\"balance\":0.0}"
 					},
 					"redirectURL": "",
 					"headersSize": -1,
@@ -318,7 +478,7 @@
 					"dns": -1,
 					"connect": -1,
 					"send": 0,
-					"wait": 20.394,
+					"wait": 11.134,
 					"receive": 0,
 					"ssl": -1
 				},

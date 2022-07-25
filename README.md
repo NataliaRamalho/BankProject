@@ -54,8 +54,6 @@ Se não, faça o download do repositório e descompacte o arquivo.
 
 `````
     {
-        "accountNumber": 100,
-        "balance": 0,
         "email": "teste@gmail.com",
         "name": "teste",
         "password": "123"
@@ -79,10 +77,14 @@ Se não, faça o download do repositório e descompacte o arquivo.
 ```
     {
         "type": 0,
-        "value": 250,
-        "instant": "2022-07-05 00:00:00"
+        "value": 50,
+        "date": "2022-07-22 15:21:22",
+        "recipientId":1,
+        "description": "testando"
     }
 ```
+
+**Obs:** Type 0 = RECEIVE, Type 1 = TRANSFER
 
 - Caso tenha o [insomnia](https://insomnia.rest/download) basta importar o arquivo [routes](https://github.com/NataliaRamalho/BankProject/blob/main/routes) que terá todas as rotas da aplicação
 
