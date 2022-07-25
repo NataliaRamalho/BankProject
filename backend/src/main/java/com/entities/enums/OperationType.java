@@ -1,21 +1,19 @@
 package com.entities.enums;
 
 public enum OperationType {
-	DEPOSIT(1),
-    WITHDRAW(2),
-    TRANSFER(3),
-    STATEMENT(4);
-	
+	RECEIVE(0),
+	TRANSFER(1);
+
 	private int code;
-	
-	private OperationType (int code) {
+
+	private OperationType(int code) {
 		this.code = code;
 	}
-	
-	public int getCode(){
+
+	public int getCode() {
 		return code;
 	}
-	
+
 	public static OperationType valueOf(int code) {
 		for (OperationType value : OperationType.values()) {
 			if (value.getCode() == code) {
@@ -24,5 +22,5 @@ public enum OperationType {
 		}
 		throw new IllegalArgumentException("Invalid OperationType");
 	}
-	
+
 }
