@@ -26,9 +26,11 @@ public class Operation implements Serializable {
 
 	public Double value;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT")
 	public Instant date;
-	
+
+	public String description;
+
 	public Long recipientId;
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -39,12 +41,12 @@ public class Operation implements Serializable {
 		super();
 	}
 
-	public Operation(Long id, OperationType type, Double value, Instant date, Long recipientId, User client) {
-		super();
-		this.id = id;
+	public Operation(OperationType type, Double value, Instant date, String description, Long recipientId,
+			User client) {
 		setType(type);
 		this.value = value;
 		this.date = date;
+		this.description = description;
 		this.recipientId = recipientId;
 		this.client = client;
 	}
@@ -84,6 +86,14 @@ public class Operation implements Serializable {
 		this.date = date;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Long getRecipientId() {
 		return recipientId;
 	}
@@ -99,7 +109,7 @@ public class Operation implements Serializable {
 	public void setClient(User client) {
 		this.client = client;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
