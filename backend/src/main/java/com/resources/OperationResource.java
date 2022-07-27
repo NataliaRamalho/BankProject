@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.dto.OperationDTO;
 import com.entities.Operation;
 import com.exceptions.CustomError;
 import com.services.OperationService;
@@ -32,16 +33,16 @@ public class OperationResource {
 	}
 
 	@PostMapping(value = "/{user_id}")
-	public ResponseEntity<Object> registerUser(@PathVariable Long user_id, @RequestBody Operation op) {
+	public ResponseEntity<Object> registerUser(@PathVariable Long user_id, @RequestBody OperationDTO opDto) {
 		try {
-			Operation[] ops = services.createOperation(user_id, op);
+			Operation[] ops = services.createOperation(user_id, opDto);
 			if (ops.length > 2) {
 				return ResponseEntity.notFound().build();
 			}
 
 			URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(ops[0].getId())
 					.toUri();
-			return ResponseEntity.created(uri).body(op);
+			return ResponseEntity.created(uri).body(opDto);
 		} catch (CustomError e) {
 			System.out.println(e);
 			return new ResponseEntity<>(e.getMessage(), e.getstatus());

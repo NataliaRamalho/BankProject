@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.dto.OperationDTO;
 import com.entities.Operation;
 import com.entities.User;
 import com.entities.enums.OperationType;
@@ -26,19 +27,23 @@ public class OperationService {
 		return repositoryOp.findAll();
 	}
 
-	public Operation[] createOperation(Long user_id, Operation op) {
+	public Operation[] createOperation(Long user_id, OperationDTO op) {
 		Optional<User> user = repositoryUser.findById(user_id);
 		if (!user.isPresent()) {
+			throw new CustomError("User not found", HttpStatus.NOT_FOUND);
+		}
+		User recipient = repositoryUser.findByAccountNumber(op.getRecipientAccountNumber());
+		if (recipient == null || recipient.getId() == user.get().getId()) {
 			throw new CustomError("User not found", HttpStatus.NOT_FOUND);
 		}
 		OperationType type = op.getType();
 		Operation[] operations;
 		switch (type) {
 			case RECEIVE:
-				operations = this.receive(user.get(), op);
+				operations = this.receive(user.get(), op, recipient);
 				break;
 			case TRANSFER:
-				operations = this.trasfer(user.get(), op);
+				operations = this.trasfer(user.get(), op, recipient);
 				break;
 			default:
 				throw new CustomError("Operation not exist", HttpStatus.NOT_FOUND);
@@ -46,56 +51,38 @@ public class OperationService {
 		return operations;
 	}
 
-	public Operation[] receive(User user, Operation op) {
-		if (op.getRecipientId() != null) {
-			Optional<User> recipient = repositoryUser.findById(op.getRecipientId());
-			if (recipient.isPresent() && op.getRecipientId() != user.getId()) {
-				user.setBalance(user.getBalance() + op.getValue());
-				User recipetData = recipient.get();
-				recipetData.setBalance(recipetData.getBalance() - op.getValue());
-				repositoryUser.save(recipetData);
-				repositoryUser.save(user);
-				Operation op1 = new Operation(op.getType(), op.value, op.date, op.description, op.recipientId, user);
-				Operation op2 = new Operation(OperationType.TRANSFER, op.value, op.date, op.description, user.id,
-						recipetData);
-				Operation newOp1 = repositoryOp.save(op1);
-				Operation newOp2 = repositoryOp.save(op2);
-				Operation[] operations = { newOp1, newOp2 };
-				return operations;
-			} else {
-				throw new CustomError("Recipient not found", HttpStatus.NOT_FOUND);
-			}
-		}
-		throw new CustomError("Recipient not found", HttpStatus.NOT_FOUND);
+	public Operation[] receive(User user, OperationDTO op, User recipient) {
+		user.setBalance(user.getBalance() + op.getValue());
+		recipient.setBalance(recipient.getBalance() - op.getValue());
+		repositoryUser.save(recipient);
+		repositoryUser.save(user);
+		Operation op1 = new Operation(op.getType(), op.getValue(), op.getDate(), op.getDescription(), recipient.getId(),
+				user);
+		Operation op2 = new Operation(OperationType.TRANSFER, op.getValue(), op.getDate(), op.getDescription(), user.id,
+				recipient);
+		Operation newOp1 = repositoryOp.save(op1);
+		Operation newOp2 = repositoryOp.save(op2);
+		Operation[] operations = { newOp1, newOp2 };
+		return operations;
 	}
 
-	public Operation[] trasfer(User user, Operation op) {
+	public Operation[] trasfer(User user, OperationDTO op, User recipient) {
 		Double balanceUser = user.getBalance();
 		if (balanceUser >= op.getValue()) {
-			if (op.getRecipientId() != null) {
-				Optional<User> recipient = repositoryUser.findById(op.getRecipientId());
-				if (recipient.isPresent() && op.getRecipientId() != user.getId()) {
-					user.setBalance(balanceUser - op.getValue());
-					User recipetData = recipient.get();
-					recipetData.setBalance(recipetData.getBalance() + op.getValue());
-					repositoryUser.save(recipetData);
-					repositoryUser.save(user);
-					Operation op1 = new Operation(op.getType(), op.value, op.date, op.description, op.recipientId,
-							user);
-					Operation op2 = new Operation(OperationType.RECEIVE, op.value, op.date, op.description, user.id,
-							recipetData);
-					Operation newOp1 = repositoryOp.save(op1);
-					Operation newOp2 = repositoryOp.save(op2);
-					Operation[] operations = { newOp1, newOp2 };
-					return operations;
-				} else {
-					throw new CustomError("Recipient not found", HttpStatus.NOT_FOUND);
-				}
-			}
-
+			user.setBalance(balanceUser - op.getValue());
+			recipient.setBalance(recipient.getBalance() + op.getValue());
+			repositoryUser.save(recipient);
+			repositoryUser.save(user);
+			Operation op1 = new Operation(op.getType(), op.getValue(), op.getDate(), op.getDescription(),
+					recipient.getId(), user);
+			Operation op2 = new Operation(OperationType.RECEIVE, op.getValue(), op.getDate(), op.getDescription(),
+					user.id, recipient);
+			Operation newOp1 = repositoryOp.save(op1);
+			Operation newOp2 = repositoryOp.save(op2);
+			Operation[] operations = { newOp1, newOp2 };
+			return operations;
 		}
 		throw new CustomError("Balance is not available", HttpStatus.NOT_FOUND);
-
 	}
 
 }
