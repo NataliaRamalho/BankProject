@@ -79,7 +79,7 @@ Se não, faça o download do repositório e descompacte o arquivo.
         "type": 0,
         "value": 50,
         "date": "2022-07-22 15:21:22",
-        "recipientId":1,
+        "recipientAccountNumber": "q3286615",
         "description": "testando"
     }
 ```
